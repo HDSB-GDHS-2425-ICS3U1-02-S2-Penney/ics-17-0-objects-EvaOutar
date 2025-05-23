@@ -18,14 +18,28 @@ function init() {
 
 
 
-// Write the createCircle function here. 
+function circle(x,y, color) {
+  this.x = x;
+  this.y = y;
+  this.color = color;
+}
+
+const objs = []
+let currentcircle = 0;
+
+function createcircle() {
+  objs[currentcircle] = new circle(10, 10, "red");
+
+  ctx.beginPath();
+  ctx.arc(objs[currentcircle].x, objs[currentcircle].y,10, 0, Math.PI * 2);
+  ctx.fillStyle = objs[currentcircle].color;
+  ctx.fill();
+}
 
 
-
-// Write the randomInteger function here. 
-
-
-
+function randomInteger(max, min) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 /**** GAMELOOP ****/
 
 function gameLoop(timestamp) {
