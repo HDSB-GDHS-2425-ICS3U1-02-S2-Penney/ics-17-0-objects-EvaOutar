@@ -28,7 +28,7 @@ const objs = []
 let currentcircle = 0;
 
 function createcircle() {
-  objs[currentcircle] = new circle(10, 10, "red");
+  objs[currentcircle] = new circle(randomInteger(0,480) , randomInteger(0, 480), getRandomcolor());
 
   ctx.beginPath();
   ctx.arc(objs[currentcircle].x, objs[currentcircle].y,10, 0, Math.PI * 2);
@@ -40,11 +40,20 @@ function createcircle() {
 function randomInteger(max, min) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+function  getRandomcolor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
 /**** GAMELOOP ****/
 
 function gameLoop(timestamp) {
 
   // Call the createCircle function here.
+  createcircle()
 
 
   // This causes the game to loop every frame (Do not change this)
